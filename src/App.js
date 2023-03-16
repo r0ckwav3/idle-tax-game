@@ -1,5 +1,11 @@
 import React from 'react';
+import MainLoop from 'mainloop.js';
+import Game from './Game.js';
+import TopPanel from './TopPanel.js';
 import './App.css';
+
+let game = new Game();
+MainLoop.setUpdate((dt)=>{game.gameTick(dt)}).start();
 
 export default function App() {
     return (
@@ -9,14 +15,6 @@ export default function App() {
       <BottomPanel />
     </div>
     );
-}
-
-function TopPanel(){
-  return(
-  <div className="topPanel">
-    temp
-  </div>
-  );
 }
 
 function MiddlePanel(){
