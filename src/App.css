@@ -1,0 +1,27 @@
+.topPanel{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 0%;
+    bottom: 90%;
+    /* temporary */
+    background: #EFF;
+}
+.middlePanel{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 10%;
+    bottom: 60%;
+    /* temporary */
+    background: #FEF;
+}
+.bottomPanel{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 40%;
+    bottom: 0%;
+    /* temporary */
+    background: #FFE;
+}
