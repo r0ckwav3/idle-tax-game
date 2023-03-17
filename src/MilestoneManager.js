@@ -7,7 +7,7 @@ export default class MilestoneManager{
   }
 
   createMilestone(name, cost, kind, description){
-    let milestone = new Milestone(currentid, name, cost, kind, description);
+    let milestone = new Milestone(this.currentid, name, cost, kind, description);
     this.milestones.push(milestone);
     this.currentid += 1;
     return milestone;
