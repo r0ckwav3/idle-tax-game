@@ -2,6 +2,7 @@ import React from 'react';
 import MainLoop from 'mainloop.js';
 import Game from './Game.js';
 import TopPanel from './TopPanel.js';
+import BottomPanel from './BottomPanel.js';
 import './App.css';
 
 let game = new Game();
@@ -20,14 +21,6 @@ export default function App() {
 function MiddlePanel(){
   return(
   <div className="middlePanel">
-    temp
-  </div>
-  );
-}
-
-function BottomPanel(){
-  return(
-  <div className="bottomPanel">
     temp
   </div>
   );

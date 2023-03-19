@@ -7,6 +7,7 @@
     /* temporary */
     background: #EFF;
 }
+
 .middlePanel{
     position: absolute;
     right: 0px;
@@ -16,6 +17,7 @@
     /* temporary */
     background: #FEF;
 }
+
 .bottomPanel{
     position: absolute;
     right: 0px;
@@ -24,4 +26,12 @@
     bottom: 0%;
     /* temporary */
     background: #FFE;
+}
+
+.milestone-box {
+  background: #fff;
+  border: 1px solid #999;
+  height: 50px;
+  width: 50px;
+  text-align: center;
 }

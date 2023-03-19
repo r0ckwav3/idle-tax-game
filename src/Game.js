@@ -1,4 +1,4 @@
-import MilestoneManager from "./MilestoneManager.js"
+import milestoneManager from "./MilestoneManager.js"
 import eventManager from "./EventManager.js"
 
 export default class Game{
@@ -8,7 +8,7 @@ export default class Game{
     this.resources.push(new Resource(0, "Wheat", 10, 500));
     this.resources.push(new Resource(1, "Cattle", 10, 500));
     // temp
-    eventManager.createHook("updateGold", e => console.log(e.value));
+    // eventManager.createHook("updateGold", e => console.log(e.value));
   }
 
   // dt: time since last game tick, in milliseconds

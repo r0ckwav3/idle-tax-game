@@ -1,13 +1,13 @@
 import eventManager from "./EventManager.js"
 
-export default class MilestoneManager{
+class MilestoneManager{
   constructor(){
     this.milestones = [];
     this.currentid = 0;
   }
 
-  createMilestone(name, cost, kind, description){
-    let milestone = new Milestone(this.currentid, name, cost, kind, description);
+  createMilestone(name, displayName, cost, kind, description){
+    let milestone = new Milestone(this.currentid, name, displayName, cost, kind, description);
     this.milestones.push(milestone);
     this.currentid += 1;
     return milestone;
@@ -15,12 +15,16 @@ export default class MilestoneManager{
 
   getMilestone(name){
     let ans = null;
-    this.milestones.foreach((ms)=>{
+    this.milestones.forEach((ms)=>{
       if(ms.name === name){
         ans = ms;
       }
     });
     return ans;
+  }
+
+  getMilestonebyID(id){
+    return this.milestones[id];
   }
 
   // react hooks and stuff should use this one, since its significantly faster
@@ -40,15 +44,16 @@ export default class MilestoneManager{
       name: "updateMilestone",
       milestoneName: name,
       milestoneID: milestone.id,
-      value: active
+      active: active
     });
   }
 }
 
 class Milestone{
-  constructor(id, name, cost, kind, description){
+  constructor(id, name, displayName, cost, kind, description){
     this.id = id; // id corresponds to position in list
-    this.name = name;
+    this.name = name; // name should be snake case
+    this.displayName = displayName; // display name can be anything
     this.description = description;
     this.active = false;
     this.cost = cost; // negative cost means not purchasable
@@ -58,3 +63,20 @@ class Milestone{
     this.pos = null; // used when making upgrade trees
   }
 }
+
+export function MilestoneBox({ milestoneName }){
+  // TODO: allow using IDs intstead of names
+  // TODO: change this to use a custom hook
+  // TODO: add a tooltip
+  const milestone = milestoneManager.getMilestone(milestoneName);
+  const imgpath = require("./images/milestones/"+milestone.kind+"/"+milestone.name+".png");
+
+  return (<img className="milestone-box" src={imgpath} alt={milestone.displayName}/>);
+}
+
+// export
+let milestoneManager = new MilestoneManager();
+export default milestoneManager;
+// create the milestones
+// misc
+milestoneManager.createMilestone("unknown", "???", -1, "other", "You have not unlocked this yet.");
