@@ -71,7 +71,7 @@ export function MilestoneBox({ milestoneName }){
   const milestone = milestoneManager.getMilestone(milestoneName);
   const imgpath = require("./images/milestones/"+milestone.kind+"/"+milestone.name+".png");
 
-  return (<img className="milestone-box" src={imgpath} alt={milestone.displayName}/>);
+  return (<img className="milestoneBox" src={imgpath} alt={milestone.displayName}/>);
 }
 
 // export

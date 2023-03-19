@@ -4,6 +4,7 @@
     left: 0px;
     top: 0%;
     bottom: 90%;
+    padding-left: 20px;
     /* temporary */
     background: #EFF;
 }
@@ -18,20 +19,47 @@
     background: #FEF;
 }
 
-.bottomPanel{
+.bottomSelector{
     position: absolute;
     right: 0px;
     left: 0px;
     top: 40%;
+    bottom: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bottomPanel{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 50%;
     bottom: 0%;
+    padding-top: 10px;
     /* temporary */
     background: #FFE;
 }
 
-.milestone-box {
+.milestoneBox {
   background: #fff;
   border: 1px solid #999;
   height: 50px;
   width: 50px;
   text-align: center;
+}
+
+.milestoneBox {
+  background: #fff;
+  border: 1px solid #999;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+}
+
+.bottomSelectorButton {
+    border: 1px solid #999;
+    width:100%;
+    min-height: 30px;
+    height:100%
 }
