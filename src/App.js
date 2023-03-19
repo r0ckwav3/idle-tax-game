@@ -3,7 +3,6 @@ import MainLoop from 'mainloop.js';
 import Game from './Game.js';
 import TopPanel from './TopPanel.js';
 import BottomPanel from './BottomPanel.js';
-import './App.css';
 
 let game = new Game();
 MainLoop.setUpdate((dt)=>{game.gameTick(dt)}).start();
