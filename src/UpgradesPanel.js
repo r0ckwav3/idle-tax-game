@@ -7,12 +7,10 @@ export default function UpgradesPanel(){
   const [selectedCategory, setSelectedCategory] = useState(0);
 
   const sidebarButtons = activeCategories.map((r, i) => {
-    return (<button className="upgradeSidebarButton" onClick={()=>setSelectedCategory(i)}>
+    return (<button key={r.name} className="upgradeSidebarButton" onClick={()=>setSelectedCategory(i)}>
       {r.displayName}
     </button>);
   });
-
-  console.log(sidebarButtons);
 
   const upgradeContent = <UpgradeTree category={activeCategories[selectedCategory]}/>;
 
@@ -28,10 +26,10 @@ export default function UpgradesPanel(){
 
 function UpgradeTree( {category} ){
   return (
-  <div style = {{textAlign: "center"}}>
+  <div style={{paddingLeft:"500px"}}>
     You are looking at {category.displayName}
     <br />
-    <MilestoneBox milestoneName="unknown"/>
+    <MilestoneBox milestoneName="wheat_double_1"/>
   </div>
   );
 }

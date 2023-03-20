@@ -5,8 +5,8 @@ class Game{
   constructor(){
     this.gold = 0;
     this.resources = [];
-    this.resources.push(new Resource(0, "wheat", "Wheat", 10, 500));
-    this.resources.push(new Resource(1, "cattle", "Cattle", 10, 500));
+    this.resources.push(new Resource(0, "wheat", "Wheat", 10, 2000));
+    this.resources.push(new Resource(1, "cattle", "Cattle", 10, 2000));
     // temp
     this.resources[0].active = true;
   }

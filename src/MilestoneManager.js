@@ -1,4 +1,5 @@
-import eventManager from "./EventManager.js"
+import eventManager from "./EventManager.js";
+import TooltipBox from "./Tooltip.js";
 
 class MilestoneManager{
   constructor(){
@@ -71,7 +72,19 @@ export function MilestoneBox({ milestoneName }){
   const milestone = milestoneManager.getMilestone(milestoneName);
   const imgpath = require("./images/milestones/"+milestone.kind+"/"+milestone.name+".png");
 
-  return (<img className="milestoneBox" src={imgpath} alt={milestone.displayName}/>);
+  return (
+  <div className="milestoneBox">
+    <TooltipBox>
+      <img src={imgpath} alt={milestone.displayName}/>
+      <div>
+        <b> {milestone.displayName} </b>
+        {milestone.cost===-1?"":"cost: "+milestone.cost} {/*TODO:  right align this*/}
+        <br />
+        {milestone.description}
+      </div>
+    </ TooltipBox>
+  </div>
+  );
 }
 
 // export
@@ -80,3 +93,12 @@ export default milestoneManager;
 // create the milestones
 // misc
 milestoneManager.createMilestone("unknown", "???", -1, "other", "You have not unlocked this yet.");
+
+// -- UPGRADES --
+// Global Upgrades
+
+// Wheat Upgrades
+milestoneManager.createMilestone("wheat_double_1", "Plowed Fields", 200, "upgrade_wheat", "Double the output of your feilds.");
+
+// -- Acheivements --
+milestoneManager.createMilestone("wheat_achievement_1", "First Field", -1, "achievement", "Purchase your first field.");

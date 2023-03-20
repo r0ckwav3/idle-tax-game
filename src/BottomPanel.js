@@ -51,10 +51,10 @@ function BottomSelector({ onClick, selected }){
 
 function AcheivementsPanel(){
   return (
-  <div style={{textAlign: "center"}}>
+    <div style={{paddingLeft:"500px"}}>
     achievments! Here's one:
     <br />
-    <MilestoneBox milestoneName="unknown"/>
+    <MilestoneBox milestoneName="wheat_achievement_1"/>
   </div>
   );
 }
