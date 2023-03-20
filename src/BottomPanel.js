@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import UpgradesPanel from './UpgradesPanel.js';
 import {MilestoneBox} from "./MilestoneManager.js"
 
 export default function BottomPanel(){
@@ -50,7 +51,7 @@ function BottomSelector({ onClick, selected }){
 
 function AcheivementsPanel(){
   return (
-  <div style={{"text-align": "center"}}>
+  <div style={{textAlign: "center"}}>
     achievments! Here's one:
     <br />
     <MilestoneBox milestoneName="unknown"/>
@@ -58,16 +59,6 @@ function AcheivementsPanel(){
   );
 }
 
-function UpgradesPanel(){
-  return (
-    <div style={{"text-align": "center"}}>
-      upgrades! Here's one:
-      <br />
-      <MilestoneBox milestoneName="unknown"/>
-    </div>
-    );
-}
-
 function LandPanel(){
-  return <div style={{"text-align": "center"}}> land! </div>;
+  return <div style={{textAlign: "center"}}> land! </div>;
 }

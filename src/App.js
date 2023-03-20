@@ -1,10 +1,9 @@
 import React from 'react';
 import MainLoop from 'mainloop.js';
-import Game from './Game.js';
+import game from './Game.js';
 import TopPanel from './TopPanel.js';
 import BottomPanel from './BottomPanel.js';
 
-let game = new Game();
 MainLoop.setUpdate((dt)=>{game.gameTick(dt)}).start();
 
 export default function App() {

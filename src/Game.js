@@ -1,14 +1,14 @@
 import milestoneManager from "./MilestoneManager.js"
 import eventManager from "./EventManager.js"
 
-export default class Game{
+class Game{
   constructor(){
     this.gold = 0;
     this.resources = [];
-    this.resources.push(new Resource(0, "Wheat", 10, 500));
-    this.resources.push(new Resource(1, "Cattle", 10, 500));
+    this.resources.push(new Resource(0, "wheat", "Wheat", 10, 500));
+    this.resources.push(new Resource(1, "cattle", "Cattle", 10, 500));
     // temp
-    // eventManager.createHook("updateGold", e => console.log(e.value));
+    this.resources[0].active = true;
   }
 
   // dt: time since last game tick, in milliseconds
@@ -37,12 +37,13 @@ export default class Game{
 // baseinterval is in milliseconds
 // id corresponds to index in resources array
 class Resource{
-  constructor(id, name, basevalue, baseinterval){
+  constructor(id, name, displayName, basevalue, baseinterval){
     this.id = id;
     this.name = name;
+    this.displayName = displayName;
     this.basevalue = basevalue;
     this.baseinterval = baseinterval;
-    this.active = true;
+    this.active = false;
 
     this.value = basevalue;
     this.interval = baseinterval;
@@ -72,3 +73,6 @@ class Resource{
     this.active = a;
   }
 }
+
+let game = new Game();
+export default game;
