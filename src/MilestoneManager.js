@@ -1,5 +1,4 @@
 import eventManager from "./EventManager.js";
-import TooltipBox from "./Tooltip.js";
 
 class MilestoneManager{
   constructor(){
@@ -28,22 +27,17 @@ class MilestoneManager{
     return this.milestones[id];
   }
 
-  // react hooks and stuff should use this one, since its significantly faster
-  // and you only need to search the whole list once to get the id and store it
-  isActiveID(id){
+  isActive(id){
     return this.milestones[id].active;
   }
 
-  isActive(name){
-    return this.getMilestone(name).active;
-  }
-
-  setActive(name, active){
-    let milestone = this.getMilestone(name);
+  setActive(id, active){
+    console.log("setActive(", id, "+", active, ");")
+    let milestone = this.getMilestonebyID(id);
     milestone.active = active;
     eventManager.sendEvent({
       name: "updateMilestone",
-      milestoneName: name,
+      milestoneName: milestone.name,
       milestoneID: milestone.id,
       active: active
     });
@@ -63,28 +57,6 @@ class Milestone{
     this.kind = kind; // achievement, upgrade_global, upgrade_wheat etc.
     this.pos = null; // used when making upgrade trees
   }
-}
-
-export function MilestoneBox({ milestoneName }){
-  // TODO: allow using IDs intstead of names
-  // TODO: change this to use a custom hook
-  // TODO: add a tooltip
-  const milestone = milestoneManager.getMilestone(milestoneName);
-  const imgpath = require("./images/milestones/"+milestone.kind+"/"+milestone.name+".png");
-
-  return (
-  <div className="milestoneBox">
-    <TooltipBox>
-      <img src={imgpath} alt={milestone.displayName}/>
-      <div>
-        <b> {milestone.displayName} </b>
-        {milestone.cost===-1?"":"cost: "+milestone.cost} {/*TODO:  right align this*/}
-        <br />
-        {milestone.description}
-      </div>
-    </ TooltipBox>
-  </div>
-  );
 }
 
 // export

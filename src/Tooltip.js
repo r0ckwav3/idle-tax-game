@@ -9,8 +9,6 @@ function Tooltip({ state }) {
   const [componentRect, setComponentRect] = useState([0,0]);
   const thisRef = useRef();
 
-  console.log(componentRect);
-
   useEffect(() =>{
     const box = thisRef.current.getBoundingClientRect()
     setComponentRect([box.right-box.left,box.bottom-box.top]);
@@ -86,7 +84,6 @@ export const TooltipDispatchContext = createContext((_action) => { throw Error; 
 
 export function TooltipManager({ children }){
   const [tooltipState, tooltipDispatch] = useReducer(tooltipReducer, initialTooltipState);
-  console.log("tooltipState:", tooltipState);
   return (<TooltipDispatchContext.Provider value={tooltipDispatch}>
     {children}
     <Tooltip state={tooltipState} />

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import game from './Game.js';
-import {MilestoneBox} from "./MilestoneManager.js"
+import MilestoneBox from "./MilestoneBox.js"
 
 export default function UpgradesPanel(){
   const activeCategories = useUpgradeCategories();

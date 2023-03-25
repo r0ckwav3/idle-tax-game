@@ -41,11 +41,18 @@
 }
 
 .milestoneBox {
+  /*TODO: make this turn different colors based on hover and active status*/
   background: #fff;
   border: 1px solid #999;
   height: 50px;
   width: 50px;
   text-align: center;
+}
+
+.milestoneImage {
+    /*TODO: figure out how to center this thing*/
+    width:80%;
+    height:80%;
 }
 
 .bottomSelectorButton {

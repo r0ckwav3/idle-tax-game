@@ -32,6 +32,16 @@ class Game{
   harvestResource(resource){
     this.gold += resource.value;
   }
+
+  attemptPurchase(cost){
+    if(this.gold < cost){
+      return false;
+    }else{
+      this.gold-=cost;
+      eventManager.sendEvent({name: "updateGold", value: this.gold})
+      return true;
+    }
+  }
 }
 
 // baseinterval is in milliseconds
