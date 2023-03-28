@@ -34,9 +34,17 @@ export default function BottomPanel(){
 
 function BottomSelector({ onClick, selected }){
   // TODO: mark the selected tab somehow
+  // TODO: move some css into the .css files
+  // TODO: maybe make these smaller or otherwise make better use of the large space
+  const unselectedStyle = {
+    backgroundImage:`url(${require("./images/buttons/2x1Button.png")})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "contain",
+    backgroundPosition: "center"
+  }
   return(
   <div className="bottomSelector">
-    <button className="bottomSelectorButton" onClick={()=>{onClick(0)}}>
+    <button className="bottomSelectorButton" style={unselectedStyle} onClick={()=>{onClick(0)}}>
       Achievements
     </button>
     <button className="bottomSelectorButton" onClick={()=>{onClick(1)}}>
