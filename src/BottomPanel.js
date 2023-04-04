@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import UpgradesPanel from './UpgradesPanel.js';
 import MilestoneBox from "./MilestoneBox.js";
+import {StoneButton2x1} from "./StoneButton.js"
 
 export default function BottomPanel(){
   const [selectedTab, setSelectedTab] = useState(1);
@@ -36,23 +37,17 @@ function BottomSelector({ onClick, selected }){
   // TODO: mark the selected tab somehow
   // TODO: move some css into the .css files
   // TODO: maybe make these smaller or otherwise make better use of the large space
-  const unselectedStyle = {
-    backgroundImage:`url(${require("./images/buttons/2x1Button.png")})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
-    backgroundPosition: "center"
-  }
   return(
   <div className="bottomSelector">
-    <button className="bottomSelectorButton" style={unselectedStyle} onClick={()=>{onClick(0)}}>
+    <StoneButton2x1 onClick={()=>{onClick(0)}} selected={selected==0}>
       Achievements
-    </button>
-    <button className="bottomSelectorButton" onClick={()=>{onClick(1)}}>
+    </StoneButton2x1>
+    <StoneButton2x1 onClick={()=>{onClick(1)}} selected={selected==1}>
       Upgrades
-    </button>
-    <button className="bottomSelectorButton" onClick={()=>{onClick(2)}}>
+    </StoneButton2x1>
+    <StoneButton2x1 onClick={()=>{onClick(2)}} selected={selected==2}>
       Land
-    </button>
+    </StoneButton2x1>
   </div>
   );
 }

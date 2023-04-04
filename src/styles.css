@@ -58,11 +58,15 @@
     height:80%;
 }
 
-.bottomSelectorButton {
-   /*  border: 1px solid #999;
-    width:100%;
-    min-height: 30px; */
-    height:100%;
+.stoneButtonBG {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    min-width: 120px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .upgradeSidebar{
