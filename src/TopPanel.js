@@ -5,13 +5,22 @@ export default function TopPanel(){
   return(
   <div className="topPanel">
     <GoldDisplay />
+    <div className="topButtons">
+      Stats
+      Help
+      Settings
+    </div>
   </div>
   );
 }
 
 function GoldDisplay(){
   let gold = useGold();
-  return <h2> {gold} </h2>;
+  return (
+  <div className="resourceDisplay">
+    <h2> {gold} </h2>
+  </div>
+  );
 }
 
 function useGold(){
