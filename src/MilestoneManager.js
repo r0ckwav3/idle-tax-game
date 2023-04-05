@@ -27,6 +27,10 @@ class MilestoneManager{
     return this.milestones[id];
   }
 
+  getMilestonesbyCategory(kind){
+    return this.milestones.filter(m => (m.kind === kind));
+  }
+
   isActive(id){
     if(typeof(id) === 'number'){
       return this.milestones[id].active;
@@ -85,3 +89,5 @@ milestoneManager.createMilestone("wheat_special_1", "Lucky Harvest", 1000, "upgr
 
 // -- Acheivements --
 milestoneManager.createMilestone("wheat_achievement_1", "First Field", -1, "achievement", "Purchase your first field.");
+
+eventManager.sendEvent("finishMilestoneInit");
