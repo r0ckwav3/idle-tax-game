@@ -12,6 +12,11 @@
     background: #EFF;
 }
 
+.topButtons{
+    display: flex;
+    flex-direction: row;
+}
+
 .middlePanel{
     position: absolute;
     right: 0px;

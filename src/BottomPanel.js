@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import UpgradesPanel from './UpgradesPanel.js';
 import MilestoneBox from "./MilestoneBox.js";
-import {StoneButton2x1} from "./StoneButton.js"
+import {StoneButton2x1} from "./StoneButton.js";
 
 export default function BottomPanel(){
   const [selectedTab, setSelectedTab] = useState(1);
