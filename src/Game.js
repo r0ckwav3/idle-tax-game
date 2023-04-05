@@ -1,12 +1,10 @@
-import milestoneManager from "./MilestoneManager.js"
-import eventManager from "./EventManager.js"
+import eventManager from "./EventManager.js";
+import Resource, {resourcelist} from "./Resource.js";
 
 class Game{
   constructor(){
     this.gold = 0;
-    this.resources = [];
-    this.resources.push(new Resource(0, "wheat", "Wheat", 10, 2000));
-    this.resources.push(new Resource(1, "cattle", "Cattle", 10, 2000));
+    this.resources = resourcelist;
     // temp
     this.resources[0].active = true;
   }
@@ -30,7 +28,7 @@ class Game{
   }
 
   harvestResource(resource){
-    this.gold += resource.value;
+    this.gold += resource.runHarvest();
   }
 
   attemptPurchase(cost){
@@ -41,46 +39,6 @@ class Game{
       eventManager.sendEvent({name: "updateGold", value: this.gold})
       return true;
     }
-  }
-}
-
-// baseinterval is in milliseconds
-// id corresponds to index in resources array
-class Resource{
-  constructor(id, name, displayName, basevalue, baseinterval){
-    this.id = id;
-    this.name = name;
-    this.displayName = displayName;
-    this.basevalue = basevalue;
-    this.baseinterval = baseinterval;
-    this.active = false;
-
-    this.value = basevalue;
-    this.interval = baseinterval;
-
-    this.timer = 0;
-  }
-
-  gameTick(dt){
-    this.timer += dt;
-    if(this.timer > this.interval){
-      const toreturn = Math.floor(this.timer/this.interval);
-      this.timer = this.timer % this.interval;
-      return toreturn;
-    }
-    return 0;
-  }
-
-  get calculateValue(){
-    return this.basevalue;
-  }
-
-  get calculateInterval(){
-    return this.baseinterval;
-  }
-
-  set setActive(a){
-    this.active = a;
   }
 }
 

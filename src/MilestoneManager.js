@@ -28,7 +28,15 @@ class MilestoneManager{
   }
 
   isActive(id){
-    return this.milestones[id].active;
+    if(typeof(id) === 'number'){
+      return this.milestones[id].active;
+    }else{
+      let milestone = this.getMilestone(id);
+      if (milestone == null){
+        return false;
+      }
+      return milestone.active;
+    }
   }
 
   setActive(id, active){
@@ -70,7 +78,10 @@ milestoneManager.createMilestone("unknown", "???", -1, "other", "You have not un
 // Global Upgrades
 
 // Wheat Upgrades
-milestoneManager.createMilestone("wheat_double_1", "Plowed Fields", 200, "upgrade_wheat", "Double the output of your feilds.");
+milestoneManager.createMilestone("wheat_double_1", "Plowed Fields", 100, "upgrade_wheat", "Double the output of your fields.");
+milestoneManager.createMilestone("wheat_double_2", "Fertilizer", 300, "upgrade_wheat", "Double the output of your fields.");
+milestoneManager.createMilestone("wheat_double_3", "High Quality Crops", 1000, "upgrade_wheat", "Double the output of your fields.");
+milestoneManager.createMilestone("wheat_special_1", "Lucky Harvest", 1000, "upgrade_wheat", "Have a 10% chance to get double the yeild.");
 
 // -- Acheivements --
 milestoneManager.createMilestone("wheat_achievement_1", "First Field", -1, "achievement", "Purchase your first field.");
