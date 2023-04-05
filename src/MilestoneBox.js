@@ -11,7 +11,7 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
   // this never changes, but is useful for memoization
   const trueMilestoneID = useState((milestoneID == null) ? milestoneManager.getMilestone(milestoneName).id : milestoneID)[0];
   const milestone = useMilestone(trueMilestoneID);
-  const imgpath = require("./images/milestones/"+milestone.kind+"/"+milestone.name+".png");
+  const imgpath = getMilestoneImage(milestone);
 
   function handleClick() {
     // console.log("Clicked milestone: " + milestoneName);
@@ -70,4 +70,12 @@ function useMilestone(milestoneID){
   });
 
   return milestone;
+}
+
+function getMilestoneImage(milestone){
+  try {
+    return require("./images/milestones/"+milestone.kind+"/"+milestone.name+".png");
+  } catch (err){
+    return require("./images/milestones/other/unknown.png");
+  }
 }
