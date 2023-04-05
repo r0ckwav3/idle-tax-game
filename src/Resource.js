@@ -72,7 +72,7 @@ resourcelist.push(new Resource(1, "cattle", "Cattle", 10, 2000));
 // On harvest functions
 resourcelist[0].onHarvest = (x) => {
   if(milestoneManager.getMilestone("wheat_special_1").active){
-    if(Math.random() > 0.1){
+    if(Math.random() < 0.1){
       return x*2;
     }
   }
