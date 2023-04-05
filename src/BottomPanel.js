@@ -10,7 +10,7 @@ export default function BottomPanel(){
     setSelectedTab(n);
   }
 
-  let currentPanel = "invalid tab selected";
+  let currentPanel;
   switch(selectedTab){
     case 0:
       currentPanel = <AcheivementsPanel key="BottomPanel0"/>;
@@ -20,6 +20,9 @@ export default function BottomPanel(){
       break;
     case 2:
       currentPanel = <LandPanel key="BottomPanel2"/>;
+      break;
+    default:
+      currentPanel = "invalid tab selected";
       break;
   }
 
@@ -39,13 +42,13 @@ function BottomSelector({ onClick, selected }){
   // TODO: maybe make these smaller or otherwise make better use of the large space
   return(
   <div className="bottomSelector">
-    <StoneButton2x1 onClick={()=>{onClick(0)}} selected={selected==0}>
+    <StoneButton2x1 onClick={()=>{onClick(0)}} selected={selected===0}>
       Achievements
     </StoneButton2x1>
-    <StoneButton2x1 onClick={()=>{onClick(1)}} selected={selected==1}>
+    <StoneButton2x1 onClick={()=>{onClick(1)}} selected={selected===1}>
       Upgrades
     </StoneButton2x1>
-    <StoneButton2x1 onClick={()=>{onClick(2)}} selected={selected==2}>
+    <StoneButton2x1 onClick={()=>{onClick(2)}} selected={selected===2}>
       Land
     </StoneButton2x1>
   </div>
