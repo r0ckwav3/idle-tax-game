@@ -30,7 +30,19 @@ export default function TooltipBox({children}) {
   const thisRef = useRef();
   const tooltipDispatch = useContext(TooltipDispatchContext);
 
-  function handleMouseOver() {
+  const [isHovered, setIsHovered] = useState(false);
+
+  function handleMouseOver(){
+      setTooltip();
+      setIsHovered(true);
+  }
+
+  function handleMouseOut(){
+      removeTooltip();
+      setIsHovered(false);
+  }
+
+  function setTooltip() {
     const clientRect = thisRef.current.getBoundingClientRect()
     const docmiddle = (clientRect.right + clientRect.left)/2 + window.scrollX;
     const doctop = clientRect.top + window.scrollY;
@@ -43,11 +55,17 @@ export default function TooltipBox({children}) {
     });
   }
 
-  function handleMouseOut() {
+  function removeTooltip() {
     tooltipDispatch({
       type: "update",
       visible: false
     });
+  }
+
+  // when we rerender this component, it is possible that the contents of the tooltip have changed
+  // if this is laggy (for some reason), I could change this to only update if the last child has changed
+  if(isHovered){
+    setTooltip();
   }
 
   return (

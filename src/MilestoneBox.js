@@ -14,11 +14,11 @@ export default function MilestoneBox({ milestoneID, milestoneName }){
   const imgpath = require("./images/milestones/"+milestone.kind+"/"+milestone.name+".png");
 
   function handleClick() {
-    console.log("Clicked milestone: " + milestoneName);
+    // console.log("Clicked milestone: " + milestoneName);
     if(!milestone.active && (milestone.cost !== -1)){
-      console.log("Purchasable");
+      // console.log("Purchasable");
       if(game.attemptPurchase(milestone.cost)){
-        console.log("Purchased");
+        // console.log("Purchased");
         milestoneManager.setActive(trueMilestoneID, true);
       }
     }
