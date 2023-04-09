@@ -5,4 +5,12 @@ An idle game where you play as a feudal lord
 I think that MainLoop might mess with offline detection, so I might make a custom one instead.
 
 ## TODO
-So much...
+### Short List
+ * BG textures
+ * Fonts
+ * Land purchasing
+ * Gamplay up to 1000 or so
+ * Upgrade formatting
+   * Prereqs
+   * Hidden Upgrades
+   * Tree
